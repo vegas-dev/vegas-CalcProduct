@@ -23,16 +23,19 @@
 					<div class="services-content mb-3">
 						<form class="services-content--inner d-flex justify-content-between">
 							<div class="services-content--item">
-								<p><input class="services-content--input" name="rate" type="radio" value="standard">Стандартный
+								<p><input class="services-content--standard" name="rate" type="radio" value="1300">Стандартный
 								</p>
+								<p>1300р</p>
 							</div>
 							<div class="services-content--item">
-								<p><input class="services-content--input" name="rate" type="radio" value="middle">Средний
+								<p><input class="services-content--middle" name="rate" type="radio" value="1500">Средний
 								</p>
+								<p>1500р</p>
 							</div>
 							<div class="services-content--item">
-								<p><input class="services-content--input" name="rate" type="radio" value="professional">Проффесиональный
+								<p><input class="services-content--profession" name="rate" type="radio" value="2000">Проффесиональный
 								</p>
+								<p>2000р</p>
 							</div>
 						</form>
 					</div>
@@ -42,11 +45,11 @@
 						</div>
 						<div class="add-content mb-3">
 							<form action="" class="add-content--services">
-								<p> Говори сколько хочешь - <span>600 руб.</span> <input class="add-content--input" name="add" type="checkbox" value="services1"></p>
-								<p> Безлимитный интернет <span>700 руб.</span> <input class="add-content--input" name="add" type="checkbox" value="services2"></p>
-								<p> Добавить 5 гигов <span>300 руб.</span> <input class="add-content--input" name="add" type="checkbox" value="services3"></p>
-								<p> Крутая услуга <span>200р</span> <input class="add-content--input" name="add" type="checkbox" value="services4"></p>
-								<p> Услуга хорошая <span>10%</span> <input class="add-content--input" name="add" type="checkbox" value="services5"></p>
+								<p> Говори сколько хочешь - <span>600 руб.</span> <input class="add-content--speak" name="add" type="checkbox" value="600"></p>
+								<p> Безлимитный интернет <span>700 руб.</span> <input class="add-content--unlimited" name="add" type="checkbox" value="700"></p>
+								<p> Добавить 5 гигов <span>300 руб.</span> <input class="add-content--gigabyte" name="add" type="checkbox" value="300"></p>
+								<p> Крутая услуга <span>200р</span> <input class="add-content--cool" name="add" type="checkbox" value="200"></p>
+								<p> Услуга хорошая <span>100</span> <input class="add-content--good" name="add" type="checkbox" value="100"></p>
 							</form>
 						</div>
 					</div>
@@ -55,8 +58,8 @@
 							<h5>Скидка</h5>
 						</div>
 						<div class="discount-content">
-							<input class="discount-content--input" type="text" value="15">
-							<button class="button">Применить</button>
+							<input class="discount-content--input" readonly type="text" name="content" value="15" >
+							<button type="button" name="content" id="btn" class="button-discount">Применить</button>
 						</div>
 					</div>
 				</div>
@@ -67,27 +70,36 @@
 					<div class="section-inner">
 						<div class="section-item mb-3">
 							<h5 class="mb-2">Выбранный тариф</h5>
-							<p class="section-item--price">50000</p>
+							<p class="section-item--price d-inline-block"> 0 </p>
+							<p class="d-inline-block">рублей</p>
 						</div>
 						<div class="section-add">
 							<div class="section-add-title">
 								<h5 class="mb-2">Дополнительные услуги</h5>
 								<ol class="section-add-list">
-									<li>Говори сколько хочешь</li>
-									<li>Безлимитный интернет</li>
-									<li>Добавить 5 гигов</li>
-									<li>Крутая услуга </li>
-									<li>Услуга хорошая</li>
+									<li>Говори сколько хочешь - <span id="speak">0</span> <span>рублей</span>
+									</li>
+									<li>Безлимитный интернет - <span id="unlimited">0</span> <span>рублей</span>
+									</li>
+									<li>Добавить 5 гигов - <span id="gigabyte">0</span> <span>рублей</span>
+									</li>
+									<li>Крутая услуга - <span id="cool">0</span> <span>рублей</span>
+									</li>
+									<li>Услуга хорошая - <span id="good">0</span> <span>рублей</span>
+									</li>
 								</ol>
 							</div>
 						</div>
 						<div class="section-discount mb-3">
 							<h5 class="mb-2">Скидка</h5>
-							<span class="section-discount--percent"> 15%</span>
+							<p>
+							<span id="percent" class="section-discount--percent"> 0</span>
+							<span>&#37</span>
+							</p>
 						</div>
 						<div class="section-total mb-3">
 							<h5 class="mb-2">Итого:</h5>
-							<p>55000</p>
+							<p id="total">0</p>
 						</div>
 
 						<div class="section-print">
