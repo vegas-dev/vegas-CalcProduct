@@ -4,26 +4,66 @@ let $formCalcProd = document.getElementById('formCalcProduct'),
 	$btnPrint = document.getElementById('btnPrintCalcProd');
 
 $input.addEventListener('click', function (e) {
-	console.log(e)
-
-	calcProduct();
+	calcProduct(this);
 
 	return false;
 });
 
 
 $btnPrint.addEventListener('click', function (e) {
-	window.print();;
+	window.print();
 
 	return false;
 });
 
 
-function calcProduct() {
+function calcProduct($self) {
+	let price = +$self.value,
+		$inputs = $formCalcProd.querySelectorAll('input'),
+		result = [
+		/*	{
+				'tariffs': {
+					'title': '',
+					'price': ''
+				}
+			},
+			{
+				'services': [
+					{
+						'title': '',
+						'price': ''
+					},
+					{
+						'title': '',
+						'price': ''
+					},
+					{
+						'title': '',
+						'price': ''
+					},
+					{
+						'title': '',
+						'price': ''
+					}
+				]
+			},
+			{
+				'sale': {
+					'title': 'Скидка',
+					'price': ''
+				}
+			}*/
+		];
 
-	getResult();
+	for(let i = 1;  i <= $inputs.length; i++) {
+		if($inputs[i - 1].value) {
+			console.log($inputs[i - 1].value)
+		}
+	}
+
+	getResult(result);
 }
 
-function getResult() {
-
+function getResult(result) {
+	console.log(result)
 }
