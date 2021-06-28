@@ -28,3 +28,7 @@ body {
 .add-content--input {
 	margin-left: 10px;
 }
+
+label {
+	cursor: pointer;
+}
