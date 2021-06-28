@@ -1,6 +1,7 @@
 let $formCalcProd = document.getElementById('formCalcProduct'),
 	$resultCalcProd = document.getElementById('formCalcProduct'),
-	$input = $formCalcProd.querySelector('input');
+	$input = $formCalcProd.querySelector('input'),
+	$btnPrint = document.getElementById('btnPrintCalcProd');
 
 $input.addEventListener('click', function (e) {
 	console.log(e)
@@ -10,7 +11,15 @@ $input.addEventListener('click', function (e) {
 	return false;
 });
 
-function calcProduct($self) {
+
+$btnPrint.addEventListener('click', function (e) {
+	window.print();;
+
+	return false;
+});
+
+
+function calcProduct() {
 
 	getResult();
 }
