@@ -15,7 +15,7 @@ body {
 
 .services-content--item {
 	display:inline-block;
-	width: 200px;
+	width: 250px;
 	height: 60px;
 	text-align: center;
 	padding: 10px 0px;
@@ -31,4 +31,12 @@ body {
 
 label {
 	cursor: pointer;
+}
+
+.section-add {
+	display: none;
+}
+
+.add-content--services label {
+	width: 35%;
 }

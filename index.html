@@ -22,38 +22,54 @@
 							<h5>Выбирите тариф</h5>
 						</div>
 						<div class="services-content mb-3">
-							<form class="services-content--inner d-flex justify-content-between">
+							<div class="services-content--inner d-flex justify-content-between">
 								<div class="services-content--item">
 									<label for="tariff-standard">
-										<input class="services-content--standard" id="tariff-standard" data-tariff-title="Стандартный" name="rate" type="radio" value="1300">
+										<input class="services-content--standard" id="tariff-standard"
+											   data-tariff-title="Стандартный" name="rate" type="radio" value="1300">
 										<span>Стандартный 1300р</span>
 									</label>
 
 								</div>
 								<div class="services-content--item">
-									<p><input class="services-content--middle" data-tariff-title="Средний" name="rate" type="radio" value="1500">Средний
-									</p>
-									<p>1500р</p>
+									<label for="content-middle">
+										<input id="content-middle" class="services-content--middle"
+											   data-tariff-title="Средний" name="rate" type="radio" value="1500">Средний
+										<span>1500р</span>
+									</label>
 								</div>
 								<div class="services-content--item">
-									<p><input class="services-content--profession" data-tariff-title="Проффесиональный" name="rate" type="radio" value="2000">Проффесиональный
-									</p>
-									<p>2000р</p>
+									<label for="content-proff">
+										<input id="content-proff" class="services-content--profession"
+											   data-tariff-title="Проффесиональный" name="rate" type="radio"
+											   value="2000">Проффесиональный
+										<span>2000р</span>
+									</label>
 								</div>
-							</form>
+							</div>
 						</div>
 						<div class="add">
 							<div class="add-title mb-3">
 								<h5>Дополнительные услуги</h5>
 							</div>
 							<div class="add-content mb-3">
-								<form action="" class="add-content--services">
-									<p> Говори сколько хочешь - <span>600 руб.</span> <input class="add-content--speak" name="add" type="checkbox" value="600"></p>
-									<p> Безлимитный интернет <span>700 руб.</span> <input class="add-content--unlimited" name="add" type="checkbox" value="700"></p>
-									<p> Добавить 5 гигов <span>300 руб.</span> <input class="add-content--gigabyte" name="add" type="checkbox" value="300"></p>
-									<p> Крутая услуга <span>200р</span> <input class="add-content--cool" name="add" type="checkbox" value="200"></p>
-									<p> Услуга хорошая <span>100</span> <input class="add-content--good" name="add" type="checkbox" value="100"></p>
-								</form>
+								<div action="" class="add-content--services d-flex flex-column">
+									<label for="add-speak">
+										Говори сколько хочешь - <span>600 руб.</span><input id="add-speak" class="add-content--speak" name="add" type="checkbox" value="600">
+									</label>
+									<label for="add-unlimited">
+										Безлимитный интернет <span>700 руб.</span> <input id="add-unlimited" class="add-content--unlimited" name="add" type="checkbox" value="700">
+									</label>
+									<label for="add-gigabyte">
+										Добавить 5 гигов <span>300 руб.</span> <input id="add-gigabyte" class="add-content--gigabyte" name="add" type="checkbox" value="300">
+									</label>
+									<label for="ad-cool">
+										Крутая услуга <span>200р</span><input id="ad-cool" class="add-content-cool" name="add" type="checkbox" value="200">
+									</label>
+									<label for="add-good">
+										Услуга хорошая <span>100</span><input id="add-good" class="add-content--good" name="add" type="checkbox" value="100">
+									</label>
+								</div>
 							</div>
 						</div>
 						<div class="discount">
