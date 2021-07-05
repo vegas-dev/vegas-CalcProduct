@@ -33,9 +33,6 @@ label {
 	cursor: pointer;
 }
 
-.section-add {
-	display: none;
-}
 
 .add-content--services label {
 	width: 35%;
