@@ -83,21 +83,18 @@ function setResult(result) {
 	let $res_checkbox = document.getElementById('resultCheckbox');
 	if(result[2].length) {
 		$res_checkbox.classList.remove('d-none');
-		let $ListCheckBox = $res_checkbox.getElementsByClassName('section-add-list');
-		let li = document.createElement('li');
 
-		let $li = $ListCheckBox[0].getElementsByTagName('li');
-		if ($li.length) {
-			for(let i=0; i < $li.length; i++) {
-				$li[i].remove();
-			}
-		}
+		let $ListCheckBox = $res_checkbox.getElementsByClassName('section-add-list') , $li;
+		$ListCheckBox[0].innerHTML = '';
 
 		for (let i = 0; i < result[2].length; i++) {
-			li.innerHTML = result[2][i].title +' - <span id="speak">'+ result[2][i].price +'</span> <span>рублей</span>';
+			$li = document.createElement('li');
+			$li.innerHTML = result[2][i].title + ' - <span id="speak">' + result[2][i].price + '</span> <span>рублей</span>';
 
-			$ListCheckBox[0].append(li);
+			$ListCheckBox[0].append($li);
 		}
+	} else {
+		$res_checkbox.classList.add('d-none');
 	}
 
 	if (result[1]) {
