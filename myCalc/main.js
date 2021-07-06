@@ -20,7 +20,24 @@ for (let i = 0; i < $input.length; i++) {
 for (let i = 0; i < $bankBtn.length ; i++ ) {
 	$bankBtn[i].addEventListener('click', () => {
 
-		let banks = [];
+		let banks = [
+			{
+				title: 'alfa',
+				price: 8.7
+			},
+			{
+				title: 'sberbank',
+				price: 8.4
+			},
+			{
+				title: 'pochta',
+				price: 7.9
+			},
+			{
+				title: 'tinkoff',
+				price: 9.2
+			},
+		];
 
 
 		for (let item of $bankBtn) {
@@ -30,7 +47,7 @@ for (let i = 0; i < $bankBtn.length ; i++ ) {
 
 		for (let i = 0; i < banks.length ; i++){
 			if (banks[i]) {
-				banks = banks[i].price ;
+				banks[i]= banks[i].price ;
 
 			}
 		}
@@ -39,6 +56,7 @@ for (let i = 0; i < $bankBtn.length ; i++ ) {
 
 		calc.run();
 
+		return banks[i];
 	});
 
 }
