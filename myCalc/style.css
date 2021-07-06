@@ -88,7 +88,6 @@ input::-webkit-inner-spin-button {
 
 .calculator-content-body-left,
 .calculator-content-body-right {
-    width: 50%;
     border-right: 2px solid #E4E6EE;
     padding-top: 40px;
 }
@@ -183,4 +182,8 @@ input::-webkit-inner-spin-button {
 
 .bank.active {
     border-color: #599FF1;
+}
+
+#formCalculator {
+    width: 100%;
 }

@@ -1,25 +1,19 @@
 let $formCalcProd = document.getElementById('formCalcProduct'),
-	$resultCalcProd = document.getElementById('resultCalcProduct'),
 	$input = $formCalcProd.querySelectorAll('input'),
 	$btnPrint = document.getElementById('btnPrintCalcProd'),
-	$total = document.getElementById('total'),
-	$discount = document.getElementById('percent'),
 	$btn = document.getElementById('btn');
 
 for (let i = 0; i < $input.length; i++) {
 	$input[i].addEventListener('click', function (e) {
 		let calcPrd = calcProduct();
 		setResult(calcPrd);
-
 		return false;
 	});
 }
 
-$formCalcProd.addEventListener('button', function() {
+$btn.addEventListener('click', () => {
 	let calcPrd = calcProduct();
 	setResult(calcPrd);
-
-	return false;
 });
 
 $btnPrint.addEventListener('click', function (e) {
@@ -109,10 +103,6 @@ function setResult(result) {
 
 }
 
-$btn.addEventListener('click', () => {
-	let calcPrd = calcProduct();
-	setResult(calcPrd);
-});
 
 
 

@@ -37,3 +37,27 @@ label {
 .add-content--services label {
 	width: 35%;
 }
+
+@media print {
+	#formCalcProduct {
+		display: none;
+	}
+
+	.bg-info {
+		display: block;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
