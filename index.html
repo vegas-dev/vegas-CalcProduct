@@ -10,8 +10,40 @@
 		  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
 
+	<script>
+		let $tariffs = document.getElementsByClassName('services-content--inner');
+		let json = document.getElementById('newTariff');
+	</script>
 </head>
 <body>
+<div id="newTariff" data-json='[
+   {
+      "title":"Стандартный",
+      "price":1300
+   },
+   {
+      "title":"Средний",
+      "price":1500
+   },
+   {
+      "title":"Проффесиональный",
+      "price":2000
+   }
+]'></div>
+<div id="newServices" data-json='[
+   {
+      "title":"Говори сколько хочешь",
+      "price":600
+   },
+   {
+      "title":"Средний",
+      "price":1500
+   },
+   {
+      "title":"Проффесиональный",
+      "price":2000
+   }
+]'></div>
 <div class="menu mt-5">
 	<div class="container">
 		<div class="row ">
@@ -25,25 +57,8 @@
 							<div class="services-content--inner d-flex justify-content-between">
 								<div class="services-content--item">
 									<label for="tariff-standard">
-										<input class="services-content--standard" id="tariff-standard" checked
-											   data-tariff-title="Стандартный" name="rate" type="radio" value="1300">
+										<input class="services-content--standard" id="tariff-standard" checked data-tariff-title="Стандартный" name="rate" type="radio" value="1300">
 										<span>Стандартный 1300р</span>
-									</label>
-
-								</div>
-								<div class="services-content--item">
-									<label for="content-middle">
-										<input id="content-middle" class="services-content--middle"
-											   data-tariff-title="Средний" name="rate" type="radio" value="1500">Средний
-										<span>1500р</span>
-									</label>
-								</div>
-								<div class="services-content--item">
-									<label for="content-proff">
-										<input id="content-proff" class="services-content--profession"
-											   data-tariff-title="Проффесиональный" name="rate" type="radio"
-											   value="2000">Проффесиональный
-										<span>2000р</span>
 									</label>
 								</div>
 							</div>
