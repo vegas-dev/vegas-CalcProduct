@@ -16,6 +16,7 @@ for (let i = 0; i < $input.length; i++) {
 }
 
 
+let sum ;
 
 for (let i = 0; i < $bankBtn.length ; i++ ) {
 	$bankBtn[i].addEventListener('click', () => {
@@ -45,18 +46,25 @@ for (let i = 0; i < $bankBtn.length ; i++ ) {
 		}
 		$bankBtn[i].classList.add('active');
 
-		for (let i = 0; i < banks.length ; i++){
-			if (banks[i]) {
-				banks[i]= banks[i].price ;
-
+		if (banks.length) {
+			for (let i = 0 ; i < banks.length ; i++) {
+				sum = banks[i].price;
 			}
 		}
+		console.log(sum);
 
-		console.log (banks[i]);
+		// for (let i = 0; i < banks.length ; i++){
+		// 	if (banks[i]) {
+		// 		let sum = banks[i].price ;
+		// 	}
+		// }
+
+
+
 
 		calc.run();
 
-		return banks[i];
+		return [banks];
 	});
 
 }

@@ -10,10 +10,6 @@
 		  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
 
-	<script>
-		let $tariffs = document.getElementsByClassName('services-content--inner');
-		let json = document.getElementById('newTariff');
-	</script>
 </head>
 <body>
 <div id="newTariff" data-json='[
@@ -36,12 +32,20 @@
       "price":600
    },
    {
-      "title":"Средний",
-      "price":1500
+      "title":"Безлимитный интернет",
+      "price":700
    },
    {
-      "title":"Проффесиональный",
-      "price":2000
+      "title":"Добавить 5 гигов",
+      "price":300
+   },
+    {
+      "title":"Крутая услуга",
+      "price":200
+   },
+    {
+      "title":"Услуга хорошая",
+      "price":100
    }
 ]'></div>
 <div class="menu mt-5">
@@ -54,11 +58,11 @@
 							<h5>Выбирите тариф</h5>
 						</div>
 						<div class="services-content mb-3">
-							<div class="services-content--inner d-flex justify-content-between">
+							<div id="inner" class="services-content--inner d-flex justify-content-between">
 								<div class="services-content--item">
-									<label for="tariff-standard">
+									<label class="label" for="tariff-standard">
 										<input class="services-content--standard" id="tariff-standard" checked data-tariff-title="Стандартный" name="rate" type="radio" value="1300">
-										<span>Стандартный 1300р</span>
+										<span >Стандартный 1300р</span>
 									</label>
 								</div>
 							</div>
