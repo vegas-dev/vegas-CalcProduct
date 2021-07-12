@@ -1,13 +1,14 @@
-let $tariffs = document.getElementsByClassName('services-content--item'),
-	$tariffInner = document.getElementById('inner'),
+let $tariffInner = document.getElementById('inner'),
 	newTariff = document.getElementById('newTariff'),
-	$addServices = document.getElementById('add-services'),
-	newServices = document.getElementById('newServices');
+	newServices = document.getElementById('newServices'),
+	$addServices = document.getElementById('add-services');
+
 
 let newTariffJson = newTariff.getAttribute('data-json'),
  	newServicesJson = newServices.getAttribute('data-json'),
 	newTariffJsonParse = JSON.parse(newTariffJson),
 	newServicesJsonParse = JSON.parse(newServicesJson);
+
 
 
 
@@ -24,12 +25,12 @@ for (let i = 0 ; i < newTariffJsonParse.length ; i++ ) {
 function createTariffElement (tariff, $tariffWrapperEl ) {
 	// создать DOM элемент
 	const $tariffDiv = document.createElement('div') ;
-	// добавить класс 
+	// добавить класс
 	$tariffDiv.classList.add('services-content--item') ;
 	// вставить внутрь HTML с шаблонным литералом и динамическими переменными
 	$tariffDiv.innerHTML = `
 	<label class="label" for="tariff-${tariff.name}">
-		<input class="services-content--${tariff.name}" id="tariff-${tariff.name}" data-tariff-title="${tariff.title}" name="rate" type="radio" value="${tariff.price}">
+		<input class="services-content--${tariff.name}" id="tariff-${tariff.name}" checked data-tariff-title="${tariff.title}" name="rate" type="radio" value="${tariff.price}">
 		<span >${tariff.title} ${tariff.price}р</span>
 	</label>
 	`;
@@ -38,15 +39,15 @@ function createTariffElement (tariff, $tariffWrapperEl ) {
 }
 
 function createServiceElement (service , $serviceWrapperEl) {
-	// создать DOM элемент
 	const $addServiceElement = document.createElement('label');
-	// добавить атрибут for 
 	$addServiceElement.setAttribute('for', `add-${service.name}`);
-	// вставить внутрь HTML с шаблонным литералом и динамическими переменными
 	$addServiceElement.innerHTML= `
 	${service.title}- <span>${service.price} руб.</span>
 	<input data-add-title="${service.dataTitle}" id="add-${service.name}" class="add-content--${service.name}" name="add" type="checkbox" value="${service.price}">
 	`;
-	// добавить новый DOM элемент внутрь DOM элемента враппера
 	$serviceWrapperEl.append($addServiceElement);
 }
+
+
+let arr = [1, 2 , 3, 4, 5, 6,];
+for (let elem of arr)
