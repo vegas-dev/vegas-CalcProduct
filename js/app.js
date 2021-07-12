@@ -3,30 +3,26 @@ let $tariffInner = document.getElementById('inner'),
 	newServices = document.getElementById('newServices'),
 	$addServices = document.getElementById('add-services');
 
-
 let newTariffJson = newTariff.getAttribute('data-json'),
- 	newServicesJson = newServices.getAttribute('data-json'),
+	newServicesJson = newServices.getAttribute('data-json'),
 	newTariffJsonParse = JSON.parse(newTariffJson),
 	newServicesJsonParse = JSON.parse(newServicesJson);
 
 
-
-
-for (let i = 0 ; i < newServicesJsonParse.length ; i++ ) {
-	createServiceElement(newServicesJsonParse[i], $addServices );
+for (let i = 0; i < newServicesJsonParse.length; i++) {
+	createServiceElement(newServicesJsonParse[i], $addServices);
 }
 
-for (let i = 0 ; i < newTariffJsonParse.length ; i++ ) {
-	createTariffElement (newTariffJsonParse[i], $tariffInner );
+for (let i = 0; i < newTariffJsonParse.length; i++) {
+	createTariffElement(newTariffJsonParse[i], $tariffInner);
 }
 
 
-
-function createTariffElement (tariff, $tariffWrapperEl ) {
+function createTariffElement(tariff, $tariffWrapperEl) {
 	// создать DOM элемент
-	const $tariffDiv = document.createElement('div') ;
+	const $tariffDiv = document.createElement('div');
 	// добавить класс
-	$tariffDiv.classList.add('services-content--item') ;
+	$tariffDiv.classList.add('services-content--item');
 	// вставить внутрь HTML с шаблонным литералом и динамическими переменными
 	$tariffDiv.innerHTML = `
 	<label class="label" for="tariff-${tariff.name}">
@@ -38,16 +34,12 @@ function createTariffElement (tariff, $tariffWrapperEl ) {
 	$tariffWrapperEl.append($tariffDiv);
 }
 
-function createServiceElement (service , $serviceWrapperEl) {
+function createServiceElement(service, $serviceWrapperEl) {
 	const $addServiceElement = document.createElement('label');
 	$addServiceElement.setAttribute('for', `add-${service.name}`);
-	$addServiceElement.innerHTML= `
+	$addServiceElement.innerHTML = `
 	${service.title}- <span>${service.price} руб.</span>
 	<input data-add-title="${service.dataTitle}" id="add-${service.name}" class="add-content--${service.name}" name="add" type="checkbox" value="${service.price}">
 	`;
 	$serviceWrapperEl.append($addServiceElement);
 }
-
-
-let arr = [1, 2 , 3, 4, 5, 6,];
-for (let elem of arr)
