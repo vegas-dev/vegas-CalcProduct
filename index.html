@@ -15,37 +15,50 @@
 <div id="newTariff" data-json='[
    {
       "title":"Стандартный",
-      "price":1300
+      "price":1300,
+	  "name": "standard"
    },
    {
       "title":"Средний",
-      "price":1500
+      "price":1500,
+	  "name": "middle"
    },
    {
       "title":"Проффесиональный",
-      "price":2000
+      "price":2000,
+	  "name": "pro"
    }
 ]'></div>
 <div id="newServices" data-json='[
    {
       "title":"Говори сколько хочешь",
-      "price":600
+      "price":600,
+	  "name": "speak",
+		"dataTitle": "Разговоры"
    },
    {
       "title":"Безлимитный интернет",
-      "price":700
+      "price":700,
+	  "name": "unlimited",
+		"dataTitle": "Безлимит"
    },
    {
       "title":"Добавить 5 гигов",
-      "price":300
+      "price":300,
+	  "name": "gigabyte",
+		"dataTitle": "Гигабайты"
    },
     {
       "title":"Крутая услуга",
-      "price":200
+      "price":200,
+	  "name": "cool",
+		"dataTitle": "Крутая услуга"
    },
     {
       "title":"Услуга хорошая",
-      "price":100
+      "price":100,
+	  "name": "good",
+		"dataTitle": "Хорошая услуга"
    }
 ]'></div>
 <div class="menu mt-5">
@@ -59,12 +72,7 @@
 						</div>
 						<div class="services-content mb-3">
 							<div id="inner" class="services-content--inner d-flex justify-content-between">
-								<div class="services-content--item">
-									<label class="label" for="tariff-standard">
-										<input class="services-content--standard" id="tariff-standard" checked data-tariff-title="Стандартный" name="rate" type="radio" value="1300">
-										<span >Стандартный 1300р</span>
-									</label>
-								</div>
+								
 							</div>
 						</div>
 						<div class="add">
@@ -72,27 +80,8 @@
 								<h5>Дополнительные услуги</h5>
 							</div>
 							<div class="add-content mb-3">
-								<div class="add-content--services d-flex flex-column">
-									<label for="add-speak">
-										Говори сколько хочешь - <span>600 руб.</span>
-										<input data-add-title="Разговоры" id="add-speak" class="add-content--speak" name="add" type="checkbox" value="600">
-									</label>
-									<label for="add-unlimited">
-										Безлимитный интернет <span>700 руб.</span>
-										<input data-add-title="Безлимит" id="add-unlimited" class="add-content--unlimited" name="add" type="checkbox" value="700">
-									</label>
-									<label for="add-gigabyte">
-										Добавить 5 гигов <span>300 руб.</span>
-										<input data-add-title="Гигабайты" id="add-gigabyte" class="add-content--gigabyte" name="add" type="checkbox" value="300">
-									</label>
-									<label for="ad-cool">
-										Крутая услуга <span>200р</span>
-										<input data-add-title="Крутая услуга" id="ad-cool" class="add-content-cool" name="add" type="checkbox" value="200">
-									</label>
-									<label for="add-good">
-										Услуга хорошая <span>100</span>
-										<input data-add-title="Хорошая услуга" id="add-good" class="add-content--good" name="add" type="checkbox" value="100">
-									</label>
+								<div id="add-services" class="add-content--services d-flex flex-column">
+								
 								</div>
 							</div>
 						</div>
