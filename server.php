@@ -1,8 +1,8 @@
 <?php
 
 $brief = [
-	'title' => 'Лендинг',
-	'price' => 20000
+	'title' => 'Интернет магазин',
+	'price' => 60000
 ];
 
 $functional = [
