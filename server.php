@@ -32,7 +32,8 @@ $functional = [
 	]
 ];
 
+
 echo json_encode([
 	'brief' => $brief,
-	'functional' => $functional
+	'functional' => $functional,
 ]);
