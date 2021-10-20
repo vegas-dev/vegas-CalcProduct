@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,28 +27,24 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="tariff-area">
-						<div class="tariff clone">
-							<h4 class="tariff-title"></h4>
-							<div class="tariff-price"></div>
-						</div>
-				</div>
-
 				<h3>Скидка</h3>
 				<div class="discount-area">
-					<input  class="form-control" type="number" min="0" max="100" name="content" value="0">
-					<button type="button" name="content" id="btnGetDiscount" class="btn btn-primary">Применить</button>
+					<input class="form-control" id="discountArea" type="number" min="0" max="100" name="content" value="0">
+					<label for="discountArea">
+						<button type="button" name="content" id="btnGetDiscount" class="btn btn-primary">Применить</button>
+					</label>
 				</div>
 			</div>
 			<div class="col-xl-4">
 				<h3>Тариф на сайт</h3>
-				<div class="brief-area">
-						<h4 id="brief-title"></h4>
-						<div id="brief-price"></div>
+				<div class="brief-wrapper">
+					<div class="brief-area clone">
+						<h4 class="brief-title"></h4>
+						<div class="brief-price"></div>
+					</div>
 				</div>
 
-				<div class="functional-area">
+				<div class="functional-area-check">
 					<div class="functional-item clone">
 						<h4 class="functional-item--title"></h4>
 						<div class="functional-item--price"></div>
