@@ -9,9 +9,11 @@ const cloneElement = (elementToCloneSelector, wrapperElSelector) => {
 const setData = (data) => {
 	const {brief, functional} = data;
 
+	let index = 0;
 	for (let item of functional) {
 		const el = cloneElement('.functional-check.clone', '.functional-area');
 		const {title, price} = item;
+		console.log(index++)
 
 		el.querySelector('.functional-check--title').innerText = title;
 		el.querySelector('.functional-check--price').innerText = price;
@@ -21,20 +23,29 @@ const setData = (data) => {
 	const el = cloneElement('.brief-area.clone', '.brief-wrapper');
 	el.querySelector('.brief-title').innerText = brief.title;
 	el.querySelector('.brief-price').innerText = brief.price;
-    let func = [];
+
 
 
 	let $input = document.querySelectorAll('input');
 	for (let i = 0; i < $input.length; i++) {
 		$input[i].addEventListener('click', () => {
-			if ($input[i].type === 'checkbox') {
-				if ($input[i].checked) {
-                    func.price = $input[i].value;
-                    console.log(func);
+			let selectedServices = [];
+
+			$input.forEach(function($el) {
+				if ($el.type === 'checkbox') {
+					if ($el.checked) {
+						selectedServices.push({
+							price: $el.value,
+							title: 'asdf',
+						});
+					}
 				}
-			}
+			});
+
+			console.log(selectedServices);
 		})
 	}
+
 };
 
 
