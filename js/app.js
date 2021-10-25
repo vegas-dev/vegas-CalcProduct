@@ -13,11 +13,15 @@ const setData = (data) => {
 	for (let item of functional) {
 		const el = cloneElement('.functional-check.clone', '.functional-area');
 		const {title, price} = item;
-		console.log(index++)
+
 
 		el.querySelector('.functional-check--title').innerText = title;
 		el.querySelector('.functional-check--price').innerText = price;
 		el.querySelector('.form-check-input').value = price;
+		el.querySelector('.form-check-input').id += index;
+		el.querySelector('.form-check-label').htmlFor += index;
+
+		index++;
 	}
 
 	const el = cloneElement('.brief-area.clone', '.brief-wrapper');
@@ -27,6 +31,13 @@ const setData = (data) => {
 
 
 	let $input = document.querySelectorAll('input');
+	let funcCheck = document.querySelector('.functional-area-check');
+	let funcCheckWrapper = document.querySelector('.functional-area-wrapper');
+	let funcItemClone = document.querySelector('.functional-item.clone'),
+		funcItem = funcItemClone.cloneNode(true);
+
+	funcCheckWrapper.innerHTML = '';
+
 	for (let i = 0; i < $input.length; i++) {
 		$input[i].addEventListener('click', () => {
 			let selectedServices = [];
@@ -36,19 +47,32 @@ const setData = (data) => {
 					if ($el.checked) {
 						selectedServices.push({
 							price: $el.value,
-							title: 'asdf',
+							title: $el.parentElement.querySelector('.functional-check--title').innerText,
 						});
 					}
 				}
 			});
 
-			console.log(selectedServices);
-		})
+			selectedServices.forEach(function (obj) {
+				funcItem.classList.remove('clone');
+				funcItem.querySelector('.functional-item--title').innerText = obj.title;
+				funcItem.querySelector('.functional-item--price').innerText = obj.price;
+
+				funcCheckWrapper.insertAdjacentHTML(funcItem);
+			});
+ 
+
+			//.functional-area-check .functional-item:not(.clone)
+
+			/*for (let item of selectedServices){
+				let el = cloneElement('.functional-item.clone', '.functional-area-check');
+				el.querySelector('.functional-item--title').innerText = item.title;
+				el.querySelector('.functional-item--price').innerText = item.price;
+			}
+			console.log(selectedServices);*/
+		});
 	}
-
 };
-
-
 // wrapper
 {/* <div class="functional-area"></div> */
 }
