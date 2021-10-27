@@ -30,7 +30,7 @@ const setData = (data) => {
 	function getSelectedServices() {
 		let selectedServices = [];
 		let selectedSale = 0;
-		let sum = 0;
+		let sum = +0;
 
 
 		$input.forEach(function ($el) {
@@ -40,29 +40,25 @@ const setData = (data) => {
 						price: $el.value,
 						title: $el.parentElement.querySelector('.functional-check--title').innerText,
 					});
-				}
+				} else {document.querySelector('.total-price').innerText = ''}
 			} else if ($el.type === 'number') {
 				if ($el.value !== '' && $el.value !== undefined) {
 					selectedSale = +$el.value;
 				}
 			}
-
 		});
 
-		console.log(selectedSale);
-		for ( let i = 0; i < selectedServices.length; i++) {
+		for (let i = 0; i < selectedServices.length; i++) {
 			sum += parseInt(selectedServices[i].price);
 		}
-
-		let buttonSale  = document.querySelector('#btnGetDiscount');
-		buttonSale.addEventListener('click', function () {
-			console.log("buttonSale");
-		});
+		sum += +brief.price;
+		let result = sum / 100;
 
 		return {
 			selectedServices: selectedServices,
 			selectedSale: selectedSale,
-			sum: sum
+			sum: sum,
+			result: result,
 		};
 	}
 
@@ -74,6 +70,15 @@ const setData = (data) => {
 	}
 
 	function getElementCloneServices() {
+
+		function resultDiscount () {
+			document.querySelector('#btnGetDiscount').addEventListener('click', function () {
+				let discount = getSelectedServices().selectedSale;
+				let result = getSelectedServices().sum - (getSelectedServices().result * discount);
+				console.log(result);
+			});
+		}
+
 		for (let i = 0; i < $input.length; i++) {
 			$input[i].addEventListener('click', () => {
 				let selectedServices = getSelectedServices().selectedServices;
@@ -85,11 +90,10 @@ const setData = (data) => {
 					el.querySelector('.functional-item--title').innerText = item.title;
 					el.querySelector('.functional-item--price').innerText = item.price;
 					let totalPrice = document.querySelector('.total-price');
-					totalPrice.innerText = getSelectedServices().sum;
-
+					 totalPrice.innerText = getSelectedServices().sum;
+					resultDiscount ();
 				}
 			});
-
 		}
 	}
 
