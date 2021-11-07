@@ -5,6 +5,11 @@ const cloneElement = (elementToCloneSelector, wrapperElSelector) => {
 	return el;
 };
 
+let btnPrint = document.querySelector('#btnPrintCalcProd');
+btnPrint.addEventListener('click', function (e) {
+ 	window.print();
+});
+
 const setData = (data) => {
 	const {brief, functional} = data;
 
@@ -27,11 +32,7 @@ const setData = (data) => {
 
 	const $input = document.querySelectorAll('input');
 
-	function getSelectedServices() {
-		let selectedServices = [];
-		let selectedSale = 0;
-		let sum = +0;
-
+	function getSelectedServices(selectedServices = [], selectedSale = 0 ) {
 
 		$input.forEach(function ($el) {
 			if ($el.type === 'checkbox') {
@@ -40,7 +41,7 @@ const setData = (data) => {
 						price: $el.value,
 						title: $el.parentElement.querySelector('.functional-check--title').innerText,
 					});
-				} else {document.querySelector('.total-price').innerText = ''}
+				}
 			} else if ($el.type === 'number') {
 				if ($el.value !== '' && $el.value !== undefined) {
 					selectedSale = +$el.value;
@@ -48,76 +49,60 @@ const setData = (data) => {
 			}
 		});
 
-		for (let i = 0; i < selectedServices.length; i++) {
-			sum += parseInt(selectedServices[i].price);
-		}
-		sum += +brief.price;
-		let result = sum / 100;
-
 		return {
 			selectedServices: selectedServices,
 			selectedSale: selectedSale,
-			sum: sum,
-			result: result,
 		};
 	}
 
-	function getElementForRemove() {
-		let elemetntsForRemove = document.querySelectorAll('.functional-area-check .functional-item:not(.clone)');  /*Ищем блок , потом его дочерний элемент и если не видим на нем класс clone удаляем ВСЕ кроме clone */
-		elemetntsForRemove.forEach(function (item) {
+	function getSumServices() {
+		let sum = brief.price,
+			discount = getSelectedServices().selectedServices;
+
+		for (let i = 0; i < discount.length; i++) {
+			sum += parseInt(discount[i].price);
+		}
+
+		return sum ;
+	}
+
+	function pastSum() {
+		document.querySelector('.total-price').innerText = getSumServices();
+		let totalPrice = document.querySelector('.total-price').innerText;
+
+		let btn = document.querySelector('#btnGetDiscount').onclick = function () {
+			if (btn && totalPrice != '') {
+				document.querySelector('.total-price').innerText = '';
+				let	discount = getSelectedServices().selectedSale;
+				document.querySelector('.total-price').innerText = (100 - discount) / 100 * totalPrice;
+			}
+		}
+	}
+
+	function ElementForRemove() {
+		let elementsForRemove = document.querySelectorAll('.functional-area-check .functional-item:not(.clone)');  /*Ищем блок , потом его дочерний элемент и если не видим на нем класс clone удаляем ВСЕ кроме clone */
+		elementsForRemove.forEach(function (item) {
 			item.outerHTML = ''; /*вставляет вместе с оберткой */
 		});
 	}
 
-	function getElementCloneServices() {
+	function pastSelectedServices() {
+		let selectedServices = getSelectedServices().selectedServices;
 
-		function resultDiscount () {
-			document.querySelector('#btnGetDiscount').addEventListener('click', function () {
-				let discount = getSelectedServices().selectedSale;
-				let result = getSelectedServices().sum - (getSelectedServices().result * discount);
-				console.log(result);
-			});
-		}
-
-		for (let i = 0; i < $input.length; i++) {
-			$input[i].addEventListener('click', () => {
-				let selectedServices = getSelectedServices().selectedServices;
-
-				getElementForRemove();
-
-				for (let item of selectedServices) {
-					let el = cloneElement('.functional-item.clone', '.functional-area-check');
-					el.querySelector('.functional-item--title').innerText = item.title;
-					el.querySelector('.functional-item--price').innerText = item.price;
-					let totalPrice = document.querySelector('.total-price');
-					 totalPrice.innerText = getSelectedServices().sum;
-					resultDiscount ();
-				}
-			});
+		for (let item of selectedServices) {
+			let el = cloneElement('.functional-item.clone', '.functional-area-check');
+			el.querySelector('.functional-item--title').innerText = item.title;
+			el.querySelector('.functional-item--price').innerText = item.price;
 		}
 	}
 
-	getElementCloneServices();
+	for (let i = 0; i < $input.length; i++) {
+		$input[i].addEventListener('click', () => {
+			ElementForRemove()
+			pastSelectedServices()
+			pastSum()
+		});
+	}
+
+	pastSelectedServices()
 };
-// wrapper
-{/* <div class="functional-area"></div> */
-}
-
-// template
-{/*
-<div class="functional-check clone">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="functionalItemTitle">
-    <label class="form-check-label" for="functionalItemTitle">
-      <span class="functional-check--title"></span>
-      <span class="functional-check--price"></span>
-    </label>
-  </div>
-</div>
-*/
-}
-
-// const {brief, functional} = data;
-// const brief = data.brief;
-// const functional = data.functional;
-
