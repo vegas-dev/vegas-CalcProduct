@@ -66,17 +66,15 @@ const setData = (data) => {
 		return sum ;
 	}
 
-	function pastSum() {
-		document.querySelector('.total-price').innerText = getSumServices();
-		let totalPrice = document.querySelector('.total-price').innerText;
+	function calc() {
+		let sumServices = getSumServices();
 
-		let btn = document.querySelector('#btnGetDiscount').onclick = function () {
-			if (btn && totalPrice != '') {
-				document.querySelector('.total-price').innerText = '';
-				let	discount = getSelectedServices().selectedSale;
-				document.querySelector('.total-price').innerText = (100 - discount) / 100 * totalPrice;
-			}
+		let discount = getSelectedServices().selectedSale;
+		if (discount) {
+			sumServices = (100 - discount) / 100 * sumServices;
 		}
+
+		document.querySelector('.total-price').innerText = sumServices;
 	}
 
 	function ElementForRemove() {
@@ -98,11 +96,13 @@ const setData = (data) => {
 
 	for (let i = 0; i < $input.length; i++) {
 		$input[i].addEventListener('click', () => {
-			ElementForRemove()
-			pastSelectedServices()
-			pastSum()
+			ElementForRemove();
+			pastSelectedServices();
+			calc();
 		});
 	}
 
-	pastSelectedServices()
+	document.querySelector('#btnGetDiscount').onclick = function () {
+		calc();
+	};
 };
